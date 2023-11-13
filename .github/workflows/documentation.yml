@@ -35,6 +35,9 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
+      - name: Setup Graphviz
+        uses: tlylt/install-graphviz@main
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -47,7 +50,6 @@ jobs:
       - run: gem install asciimath
 
       - name: Run Hugo
-        uses: tlylt/install-graphviz@main
         run: |
           mkdir -p themes/geekdoc/
           curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C themes/geekdoc/ --strip-components=1
