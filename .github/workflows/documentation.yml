@@ -10,7 +10,8 @@ defaults:
     working-directory: doc
 
 jobs:
-  deploy:
+  documentation:
+    name: Documentation
     runs-on: ubuntu-latest
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
@@ -37,7 +38,7 @@ jobs:
         run: |
           mkdir -p doc/themes/geekdoc/
           curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C doc/themes/geekdoc/ --strip-components=1
-          hugo --source doc/ --destination public/
+          hugo --source ./ --destination public/
           mkdir public
           cp -r doc/public/* public
 
