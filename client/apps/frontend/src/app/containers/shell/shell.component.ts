@@ -6,7 +6,7 @@ import { FrontendRoutes } from '@bookish-list/frontend/shared/globals';
 import { ButtonComponent } from '@bookish-list/shared/ui/button';
 import { MainMenuComponent, MenuItem } from '@bookish-list/shared/ui/main-menu';
 import { Store } from '@ngrx/store';
-import { ShellLayoutComponent } from '../../components/shell-layout/shell-layout.component';
+import { ShellLayoutComponent } from '../../presentationals/shell-layout/shell-layout.component';
 
 @Component({
   selector: 'bookish-list-shell',

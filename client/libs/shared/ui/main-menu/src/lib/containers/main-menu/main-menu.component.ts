@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { MainMenuItemComponent } from '../../components/main-menu-item/main-menu-item.component';
+import { MainMenuItemComponent } from '../../presentationals/main-menu-item/main-menu-item.component';
 import { MenuItem } from '../../models/main-menu.models';
 
 @Component({
