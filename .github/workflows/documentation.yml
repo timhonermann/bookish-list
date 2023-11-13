@@ -36,11 +36,9 @@ jobs:
 
       - name: Run Hugo
         run: |
-          mkdir -p doc/themes/geekdoc/
-          curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C doc/themes/geekdoc/ --strip-components=1
+          mkdir -p themes/geekdoc/
+          curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C themes/geekdoc/ --strip-components=1
           hugo --source ./ --destination public/
-          mkdir public
-          cp -r doc/public/* public
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
