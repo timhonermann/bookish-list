@@ -1,0 +1,51 @@
+= Use Spring Boot
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, July 26, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 26.07.2022
+
+== Context and Problem Statement
+
+Backend frameworks are server-side programming language libraries that help build the backend structure of an application or service.
+
+== Considered Options
+
+* Spring Boot
+* Micronaut
+* Quarkus
+
+== Decision Outcome
+
+Chosen option: "Spring Boot", because it is the most mature and popular framework.
+
+== Pros and Cons of the Options
+
+=== Spring Boot
+
+* Good, because it is a framework with a big ecosystem
+* Good, because it has the biggest community of all Java-Frameworks
+* Good, because it is very easy to sue and understand
+* Bad, because it is not as lightweight as other frameworks
+
+=== Micronaut
+
+* Good, because it is lightweight
+* Bad, because it's community is not very big
+* Bad, because it is limited in its functionality compared to other frameworks
+
+=== Quarkus
+
+* Good, because is very fast
+* Bad, because it is optimized for Kubernetes which we don't use
+
+== Links
+
+* https://spring.io/projects/spring-boot[Spring Boot]
+* https://micronaut.io/[Micronaut]
+* https://quarkus.io/[Quarkus]
+

@@ -1,0 +1,70 @@
+@use "mixins/fonts";
+@use "partials/font";
+
+// Book
+@font-face {
+  font-family: font.$font-family-main;
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Medium
+@font-face {
+  font-family: font.$font-family-main;
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Heavy
+@font-face {
+  font-family: font.$font-family-main;
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Black
+@font-face {
+  font-family: font.$font-family-main;
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1 {
+  @include fonts.h1();
+}
+
+h2 {
+  @include fonts.h2();
+}
+
+h3 {
+  @include fonts.h3();
+}
+
+h4 {
+  @include fonts.h4();
+}
+
+p {
+  @include fonts.p();
+}
+
+body {
+  @include fonts.body();
+}
+
+.body-small {
+  @include fonts.body-small();
+}
+
+.caption {
+  @include fonts.caption();
+}
+
+.small-print {
+  @include fonts.small-print();
+}

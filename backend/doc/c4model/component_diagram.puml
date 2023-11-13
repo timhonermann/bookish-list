@@ -1,0 +1,64 @@
+@startuml
+
+!include <c4/C4_Component.puml>
+
+
+scale max 1100 width
+
+title Component diagram for Backend - API Application
+
+Container(spa, "Frontend", "SPA: Angular", "Provides all the Bookish List functionality via their web browser.")
+ContainerDb(database, "Database", "PostgreSQL", "Stores user information, book information, book list, reviews etc.")
+System_Ext(google_books, "Google Books", "Open Library API for looking up books.")
+
+Container_Boundary(backend, "Backend") {
+    Component(lookup_controller, "Lookup Controller", "REST Controller", "Allows Users to lookup new books")
+    Component(lookup_mapper, "Lookup Mapper", "Mapper", "Maps lookup models between DTO and Entity")
+    Component(lookup_service, "Lookup Service", "Service", "Looks up books in external book system")
+
+    Component(bookish_list_controller, "Bookish List Controller", "REST Controller", "Allows users to modify their bookish list.")
+    Component(bookish_list_service, "Bookish List Service", "Service", "Provides business logic for modifying a users bookish list.")
+    Component(book_service, "Book Service", "Service", "Provides logic for storing and looking up book information of added books.")
+    Component(book_mapper, "Book Mapper", "Mapper", "Maps book models between DTO and Entity")
+    Component(bookish_list_item_repository, "Bookish List Item Repository", "Repository", "Reads and writes list items of a users Bookish list.")
+    Component(book_repository, "Bookish Repository", "Repository", "Reads and writes book information of added books.")
+    Component(book_status_repository, "Book Status Repository", "Repository", "Reads information about book status.")
+    Component(book_type_repository, "Book Type Repository", "Repository", "Reads information about book types.")
+
+    Component(account_controller, "Account Controller", "REST Controller", "Allows users to create accounts and get account information.")
+    Component(account_service, "Account Service", "Service", "Provides business logic for creating and fetching accounts.")
+    Component(account_repository, "Account Repository", "Repository", "Reads and writes account information.")
+    Component(account_mapper, "Account Mapper", "Mapper", "Maps account models between DTO and Entity")
+
+    Lay_R(bookish_list_controller, account_controller)
+    Lay_R(account_controller, lookup_controller)
+
+    Lay_R(book_service, bookish_list_service)
+    Lay_R(book_mapper, account_mapper)
+
+    Rel(spa, lookup_controller, "Makes API calls to", "REST: JSON")
+    Rel(spa, bookish_list_controller, "Makes API calls to", "REST: JSON")
+
+    Rel(lookup_controller, lookup_service, "Uses")
+    Rel(lookup_controller, lookup_mapper, "Uses")
+    Rel(lookup_service, google_books, "Makes API calls to", "REST: JSON")
+
+    Rel(account_controller, account_service, "Uses")
+    Rel(account_controller, account_mapper, "Uses")
+    Rel(account_service, account_repository, "Uses")
+    Rel(account_repository, database, "Reads from and writes to", "JPA")
+
+    Rel(bookish_list_controller, bookish_list_service, "Uses")
+    Rel(bookish_list_controller, book_mapper, "Uses")
+    Rel_Neighbor(bookish_list_service, book_service, "Uses")
+    Rel(book_service, book_repository, "Uses")
+    Rel(bookish_list_service, bookish_list_item_repository, "Uses")
+    Rel(bookish_list_service, book_status_repository, "Uses")
+    Rel(bookish_list_service, book_type_repository, "Uses")
+
+    Rel(bookish_list_item_repository, database, "Reads from and writes to", "JPA")
+    Rel(book_repository, database, "Reads from and writes to", "JPA")
+    Rel(book_status_repository, database, "Reads from", "JPA")
+    Rel(book_type_repository, database, "Reads from", "JPA")
+}
+@enduml

@@ -1,0 +1,71 @@
+= Build Modular Monolith
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, August 19, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 19.08.2022
+
+== Context and Problem Statement
+
+The backend for the bookish list must be built with a fitting architecture to fulfill its non-functional requirements.
+
+== Considered Options
+
+* Monolith
+* Modular Monolith
+* Microservices
+
+== Decision Outcome
+
+Chosen option: "Modular Monolith", because it is a structured approach following Domain-Driven-Design without introducing the complexity of microservices.
+With a modular monolith breaking out single services into a microservice is fairly easy, but it allows to explore the complexity of a system without having to make decisions too early with too little information.
+
+=== Positive Consequences
+
+* DDD
+* High cohesion, low coupling
+* Allows to explore the complexity of a system
+* Breaking out services into microservices is easy
+
+=== Negative Consequences
+
+* Monolithic applications need strict policies to prevent coupling
+* If one module crashes, the whole system crashes
+
+== Pros and Cons of the Options
+
+=== Monolith
+
+* Good, because it is easy to set up
+* Bad, because it is hard to maintain
+* Bad, because it evolves into chaos quickly
+* Bad, because it is a single point of failure
+* Bad, because it is hard to decouple later
+
+=== Modular Monolith
+
+* Good, because it is based on Domain-Driven-Design
+* Good, because it increases cohesion and lowers coupling
+* Good, because the complexity of the system can be explored
+* Good, because breaking out a single service into a microservice when needed is fairly easy
+* Bad, because it needs to be deployed as one
+* Bad, because if one service crashes, the whole system crashes
+
+=== Microservices
+
+* Good, because it enables hard modularity
+* Good, because it increases cohesion and lowers coupling
+* Good, because services are independent of each other and can be deployed independently
+* Good, because it allows a resilient design of the system
+* Bad, because it introduces complexity into the system
+* Bad, because it requires a lot of infrastructure expense and know how
+* Bad, because it requires more resources than a monolith
+
+== Links
+
+* https://martinfowler.com/bliki/MonolithFirst.html[Monolith First]
+* https://microservices.io/[Microservices]

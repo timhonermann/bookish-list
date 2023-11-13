@@ -1,0 +1,43 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@bookish-list/frontend/feature/auth": [
+        "libs/frontend/feature/auth/src/index.ts"
+      ],
+      "@bookish-list/frontend/feature/list": [
+        "libs/frontend/feature/list/src/index.ts"
+      ],
+      "@bookish-list/frontend/shared/auth": [
+        "libs/frontend/shared/auth/src/index.ts"
+      ],
+      "@bookish-list/frontend/shared/globals": [
+        "libs/frontend/shared/globals/index.ts"
+      ],
+      "@bookish-list/shared/common/http": [
+        "libs/shared/common/http/src/index.ts"
+      ],
+      "@bookish-list/shared/testing": ["libs/shared/testing/index.ts"],
+      "@bookish-list/shared/theme": ["libs/shared/theme/src/index.ts"],
+      "@bookish-list/shared/ui/button": ["libs/shared/ui/button/src/index.ts"],
+      "@bookish-list/shared/ui/icons": ["libs/shared/ui/icons/src/index.ts"],
+      "@bookish-list/shared/ui/main-menu": [
+        "libs/shared/ui/main-menu/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,27 @@
+{
+  "name": "frontend-feature-list",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/frontend/feature/list/src",
+  "prefix": "bookish-list",
+  "tags": ["scope:frontend", "type:feature"],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/frontend/feature/list/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/frontend/feature/list/**/*.ts",
+          "libs/frontend/feature/list/**/*.html"
+        ]
+      }
+    }
+  }
+}

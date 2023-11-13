@@ -1,0 +1,50 @@
+= Apply Google Checkstyle
+Tim Honermann <tim.honermann@windowslive.com>
+3.0, August 19, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 19.08.2022
+
+== Context and Problem Statement
+
+For the code to be more readable and follow certain rules guidelines must be introduced.
+
+== Considered Options
+
+* Google Java Style Guide
+* Sun
+* Both
+
+== Decision Outcome
+
+Chosen option: "Google Java Style Guide", because it is really popular in the community.
+Because of missing experience with Java Style Guides, the decision was made based on the preferences of the Java community.
+Googles Java Style Guide can be enforced with a checkstyle XML file, provided by CheckStyle IDEA Plugin for IntelliJ
+
+== Pros and Cons of the Options
+
+=== Google Java Style Guide
+
+* Good, is the most popular styleguide in the Java community
+* Good, because it is integrated in IntelliJ's checkstyle plugin
+
+=== Sun
+
+* Good, it is integrated in IntelliJ's checkstyle plugin
+
+=== Both
+
+* Good, because it enforces a lot of meaningful rules
+* Bad, because many rules are not necessary
+* Bad, because too many rules can be overwhelming
+
+== Links
+
+* https://google.github.io/styleguide/javaguide.html[Google Java Style Guide]
+* https://checkstyle.sourceforge.io/sun_style.html[Sun]
+* https://checkstyle.org[Checkstyle]
+

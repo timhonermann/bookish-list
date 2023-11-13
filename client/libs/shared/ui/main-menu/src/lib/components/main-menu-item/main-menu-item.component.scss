@@ -1,0 +1,33 @@
+@use "../../styles/main-menu-vars";
+
+:host {
+  display: block;
+  color: var(--main-menu-item-text-color);
+  cursor: pointer;
+  width: main-menu-vars.$main-menu-width;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  gap: 13px;
+
+  &.active {
+    background-color: var(--main-menu-item-active-color);
+  }
+
+  &:hover {
+    background-color: var(--main-menu-item-active-color);
+  }
+
+  .icon {
+    font-size: 26px;
+    color: var(--main-menu-item-icon-color);
+  }
+
+  .label {
+    flex: 1;
+  }
+}

@@ -1,0 +1,20 @@
+= Bookish List
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, July 30, 2022
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+image::./bookish-list-logo.png[align="center"]
+
+{empty} +
+
+[.text-justify]
+The Bookish List is a web application that allows users to look up books.
+These books can be added to a personal list.
+Books in the list can be marked with a status (e.g. read, TBR, DNF etc.).
+Books can also be given a review and get enhanced with comments.
+The goal of Bookish List is to keep a clear overview on what books you've read or want to read no matter whether they are in a physical or digital form.
+
+[.text-justify]
+Stakeholder for this project is my girlfriend Maya.
+She is an absolute book nerd and came up with this project idea, so I can practice for my bachelor's thesis.

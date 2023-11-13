@@ -1,0 +1,49 @@
+= Deploy Application To Heroku
+Tim Honermann <tim.honermann@windowslive.com>
+3.0, July 26, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 26.07.2022
+
+== Context and Problem Statement
+
+For the application to be accessible to its users, it must be deployed to a server.
+
+== Considered Options
+
+* Self Hosted
+* Heroku
+* DigitalOcean
+
+== Decision Outcome
+
+Chosen option: "Heroku", because it is easy to use and its free plan offers enough for this application to run in its current size.
+
+== Pros and Cons of the Options
+
+=== Self Hosted
+
+* Good, because it enables full control over the infrastructure
+* Bad, because it needs a lot of resources to configure and run the infrastructure
+* Bad, because the infrastructure needs to be paid as well
+
+=== Heroku
+
+* Good, because it is free
+* Good, because it is easy to integrate in the CI/CD pipeline
+* Good, because it offers a free plan for PostgreSQL database
+* Bad, because database space is very limited, needs reconsidering if the application size grows
+
+=== DigitalOcean
+
+* Good, because it is easy to integrate in CI/CD pipeline
+* Bad, because it has no free plan for hosting the application including the database
+
+== Links
+
+* https://www.heroku.com/[Heroku]
+* https://www.digitalocean.com/[DigitalOcean]

@@ -1,0 +1,14 @@
+= C4 Model
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, July 30, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+Bookish List uses C4 modeling to document the architecture of the bookish list.
+C4 is a modeling and documentation language developed to express architecture in a powerful way.
+The C4 model consists of Context, Container, Component and Code level diagrams.
+In the C4 Model, each level represents a different level of abstraction, and it is possible to zoom from the highest abstraction to more detailed one.
+
+*Note:* _You don't need to use all 4 levels of diagram; only those that add value._ +
+*Source:* _https://c4model.com/_

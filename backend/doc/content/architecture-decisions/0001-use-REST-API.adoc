@@ -1,0 +1,64 @@
+= REST API
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, July 26, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 26.07.2022
+
+== Context and Problem Statement
+
+Backend and Frontend need to be able to communicate with each other. In this case the Frontend needs to retrieve the data from the Backend.
+
+== Considered Options
+
+* REST
+* GraphQL
+* WebSockets
+
+== Decision Outcome
+
+Chosen option: "REST", because it enables a backend driven API which can be called from multiple frontends (e.g Mobile Apps).
+Bi-Directional communication is not needed and GraphQL enables a frontend driven API by querying the backend.
+REST is the most flexible option and is the most widely used.
+
+=== Positive Consequences
+
+* Standardized API
+* Architectural conventions
+* Easy to use
+* Easy to maintain
+* Big community
+
+=== Negative Consequences
+
+* Data aggregation happens in the frontend
+
+== Pros and Cons of the Options
+
+=== REST
+
+* Good, because backend driven API
+* Good, because architectural conventions
+* Bad, because data aggregation needs separate layer
+
+=== GraphQL
+
+* Good, because enables frontend side querying
+* Good, because gets rid of a data aggregation layer
+* Bad, because frontend driven
+
+=== WebSockets
+
+* Good, because enables bi directional communication
+* Good, because only one endpoint is needed
+* Bad, because Events need to be maintained and stored in a structured way in the backend and frontend
+
+== Links
+
+* https://restfulapi.net/[REST API Tutorial]
+* https://graphql.org/[GraphQL Tutorial]
+* https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API[WebSockets Tutorial]

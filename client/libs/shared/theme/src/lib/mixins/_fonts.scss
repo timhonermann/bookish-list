@@ -1,0 +1,133 @@
+@use "../partials/font";
+@use "sass:string";
+
+@mixin h1($color: "primary") {
+  font-family: font.$font-family-main;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 28px;
+
+  @include font-color($color);
+}
+
+@mixin h2($color: "primary") {
+  font-family: font.$font-family-main;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  line-height: 24px;
+  margin: 0 0 16px;
+
+  @include font-color($color);
+}
+
+@mixin h3($color: "primary") {
+  font-family: font.$font-family-main;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 22px;
+  margin: 0 0 16px;
+
+  @include font-color($color);
+
+  &.text {
+    margin-bottom: 0;
+  }
+}
+
+@mixin h4($color: "primary") {
+  font-family: font.$font-family-main;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 22px;
+
+  @include font-color($color);
+
+  &.text {
+    margin-bottom: 0;
+  }
+}
+
+@mixin p() {
+  margin: 0 0 12px;
+}
+
+@mixin body($color: "primary") {
+  font-family: font.$font-family-main;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 22px;
+
+  @include font-color($color);
+}
+
+@mixin body-small($color: "primary") {
+  font-family: font.$font-family-main;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 18px;
+
+  @include font-color($color);
+
+  strong {
+    color: inherit;
+    font-size: inherit;
+    font-weight: 800;
+  }
+}
+
+@mixin caption($color: "primary") {
+  font-size: 12px;
+  font-family: font.$font-family-main;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 16px;
+
+  @include font-color($color);
+
+  strong {
+    color: inherit;
+    font-size: inherit;
+    font-weight: 800;
+  }
+}
+
+@mixin small-print($color: "primary") {
+  font-size: 11px;
+  font-family: font.$font-family-main;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 17px;
+
+  @include font-color($color);
+
+  strong {
+    color: inherit;
+    font-size: inherit;
+    font-weight: 900;
+  }
+}
+
+@mixin font-color($pallete) {
+  $color: map-get(
+      (
+        "primary": "primary",
+        "accent": "accent",
+        "disruption": "disruption",
+        "gray-primary": "gray-primary",
+        "gray-secondary": "gray-secondary",
+        "inverted": "inverted",
+      ),
+      string.quote($pallete)
+  );
+
+  @if ($color == null) {
+    @error "$pallette must be 'primary', 'accent', 'disruption', 'gray-primary', 'gray-secondary', 'inverted'";
+  }
+  color: var(--color-font-#{$pallete});
+}

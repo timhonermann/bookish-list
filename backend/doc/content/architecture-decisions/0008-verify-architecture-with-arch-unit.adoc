@@ -1,0 +1,49 @@
+= Verify Architecture With ArchUnit
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, September 06, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 06.09.2022
+
+== Context and Problem Statement
+
+Architectural dependencies need to be verified for a maintainable codebase.
+
+== Considered Options
+
+* Pull Request Reviews
+* ArchUnit
+
+== Decision Outcome
+
+Chosen option: "ArchUnit", because it allows automated rule testing within a CI/CD pipeline.
+
+=== Positive Consequences
+
+* Rules can be defined within code base
+* Automated tests as part of a CI/CD pipeline
+* Low costs because it is automated
+
+== Pros and Cons of the Options
+
+=== Pull Request Reviews
+
+* Bad, because it is easy to overlook an architectural violation
+* Bad, because it costs a lot of time to also check code for architectural violations
+* Bad, because it is prone to human error
+
+=== ArchUnit
+
+* Good, because it is automated
+* Good, because it can be integrated into an existing CI/CD pipeline
+* Good, because architectural rule changes can be reviews as PR
+* Good, because it is way more time efficient than manual testing
+* Good, because it is a standardized process and will always run and check code the same way
+
+== Links
+
+* https://www.archunit.org/[ArchUnit]

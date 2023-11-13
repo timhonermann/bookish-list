@@ -1,0 +1,19 @@
+@startuml
+!include <c4/C4_Context.puml>
+
+'ref http://plantuml.com/stdlib
+!include <office/Users/user.puml>
+!include <office/Users/mobile_user.puml>
+
+scale max 1100 width
+
+title System Context Diagram for Bookish List System
+
+Person(user  , User , "<$user> <$mobile_user>\n A user of the Bookish List" )
+
+System(bookish_list_system, "Bookish List", "Allows users to interact with their bookish list.")
+System_Ext(google_books, "Google Books", "Google Books API for looking up books.")
+
+Rel(user, bookish_list_system, "Search Books, add to list, review books, update status, add comments")
+Rel_Neighbor(bookish_list_system, google_books, "Looks up books, retrieves metadata and gets covers")
+@enduml

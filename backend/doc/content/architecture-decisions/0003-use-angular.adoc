@@ -1,0 +1,53 @@
+= Use Angular
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, July 26, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 26.07.2022
+
+== Context and Problem Statement
+
+Frontend frameworks are a collection of code libraries that provide a web developer with pre-written code and functionality for routine programming tasks.
+Frameworks are structures with a particular context and help you create web applications within that context
+
+== Considered Options
+
+* Angular
+* React
+* Vue
+
+== Decision Outcome
+
+Chosen option: "Angular", because it has native TypeScript support, offers a modular structure and a strict separation of TypeScript, HTML and CSS.
+
+== Pros and Cons of the Options
+
+=== Angular
+
+* Good, because it has native TypeScript support
+* Good, because it has a modular structure by default
+* Good, because it has a strict separation of TypeScript, HTML and CSS
+* Bad, because it is not as common as React
+
+=== React
+
+* Good, because it is currently the most popular JS-Framework and therefore has the biggest community
+* Bad, because it is based on one file components and mixes view with logic
+
+=== Vue
+
+* Good, because it enables a wide range on how you can use the framework and scales from libaray to a full-featured framework
+* Bad, because it is not TypeScript native.
+* Bad, because it is not as common as React and Angular
+* Bad, because it is based on one file components and mixes view with logic
+
+== Links
+
+* https://angular.io/[Angular]
+* https://reactjs.org/[React]
+* https://vuejs.org/[Vue]
+

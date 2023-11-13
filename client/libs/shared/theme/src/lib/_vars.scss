@@ -1,0 +1,15 @@
+@use "base-colors";
+
+:root {
+  // background
+  --color-background-primary: #{base-colors.$color-pastel-green-base};
+  --color-background-secondary: #{base-colors.$gray-04};
+
+  // font
+  --color-font-primary: #{base-colors.$gray-13};
+  --color-font-accent: #{base-colors.$color-pastel-green-base};
+  --color-font-disruption: #{base-colors.$color-red-base};
+  --color-font-gray-primary: #{base-colors.$gray-10};
+  --color-font-gray-secondary: #{base-colors.$gray-07};
+  --color-font-inverted: #{base-colors.$gray-01};
+}

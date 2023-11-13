@@ -1,0 +1,9 @@
+<div class="main-menu">
+  <div class="header">
+    <img class="logo" src="assets/logo/logo.svg" alt="Logo"/>
+  </div>
+  <div class="menu-items">
+    <bookish-list-main-menu-item *ngFor="let menuItem of menuItems" [menuItem]="menuItem"/>
+  </div>
+  <bookish-list-main-menu-item *ngFor="let utilityMenuItem of utilityMenuItems" [menuItem]="utilityMenuItem"/>
+</div>

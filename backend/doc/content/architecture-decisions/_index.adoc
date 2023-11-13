@@ -1,0 +1,20 @@
+= Architecture Decision Records
+Tim Honermann <tim.honermann@windowslive.com>
+v3.0, July 30, 2022
+:toc:
+:icons: font
+:hide-uri-scheme:
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+Bookish List uses Architecture Decision Records to document architecture decisions of the bookish list software system.
+
+An architecture decision record (ADR) is a document that captures an important architectural decision made along with its context and consequences.
+
+By logging decisions chronologically, you will be able to:
+
+* Understand past technical decisions and their context
+* Take new decisions with confidence
+* Always have an up-to-date technical documentation and training material available
+* Onboard new developers quicker
+* Set up a collaborative decision process thanks to pull requests
+

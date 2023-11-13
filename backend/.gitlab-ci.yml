@@ -1,0 +1,62 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  image: maven:3.8.4-openjdk-17
+  script:
+    - mvn package -DskipTests
+  artifacts:
+    paths:
+      - target/bookish-list.jar
+
+test:
+  stage: test
+  image: maven:3.8.4-openjdk-17
+  script:
+    - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent test jacoco:report
+  artifacts:
+    paths:
+      - target/site/jacoco/
+      - target/karate-reports/
+
+documentation:
+  stage: build
+  image: asciidoctor/docker-asciidoctor
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  before_script:
+    - apk add --update ruby
+    - apk add --update curl && rm -rf /var/cache/apk/*
+    - apk add --update hugo
+  script:
+    - gem install asciidoctor-rouge
+    - gem install asciidoctor-bibtex
+    - gem install asciimath
+    - mkdir -p doc/themes/geekdoc/
+    - curl -L https://github.com/thegeeklab/hugo-geekdoc/releases/latest/download/hugo-geekdoc.tar.gz | tar -xz -C doc/themes/geekdoc/ --strip-components=1
+    - hugo --source doc/ --destination public/
+  artifacts:
+    paths:
+      - doc/public
+  only:
+    - main
+
+sonarcloud:
+  stage: deploy
+  image: maven:3.8.4-openjdk-17
+  script:
+    - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bookish-list-backend
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp -r doc/public/* public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main

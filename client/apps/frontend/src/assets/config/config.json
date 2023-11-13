@@ -1,0 +1,6 @@
+{
+  "serverUrl": "http://localhost:9000",
+  "domain": "https://dev-bookish-list.eu.auth0.com",
+  "clientId": "mIsaOlONd9QeVfkjYU0pYaaiqmgHF4Nt",
+  "audience": "https://dev-bookish-list.eu.auth0.com/api/v2/"
+}

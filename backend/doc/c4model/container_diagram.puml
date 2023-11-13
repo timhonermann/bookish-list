@@ -1,0 +1,26 @@
+@startuml
+'ref http://plantuml.com/stdlib
+!include <office/Users/user.puml>
+!include <office/Users/mobile_user.puml>
+!include <c4/C4_Container.puml>
+
+scale max 1100 width
+
+title Container diagram for Bookish List
+
+Person(user  , User , "<$user> <$mobile_user>\n A user of the Bookish List" )
+
+System_Boundary(bookish_list , "Bookish List System") {
+    Container(spa, "Frontend", "SPA: Angular", "Provides all the Bookish List functionality via their web browser.")
+    Container(backend, "Backend", "REST: Spring Boot, Java", "Provides Bookish List functionality via a REST API.")
+    ContainerDb(database, "Database", "PostgreSQL", "Stores user information, book information, book list, reviews etc.")
+
+    Rel(spa, backend, "Makes API calls to", "REST: JSON")
+    Rel_Left(backend, database, "Reads from and writes to", "JPA")
+}
+
+System_Ext(google_books, "Google Books", "Open Library API for looking up books.")
+
+Rel(user, spa, "Search Books, add to list, review books, update status, add comments")
+Rel_Neighbor(backend, google_books, "Makes API calls to", "REST: JSON")
+@enduml

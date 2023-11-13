@@ -1,0 +1,52 @@
+= Use Google Books API
+Tim Honermann <tim.honermann@windowslive.com>
+3.0, July 31, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+*Status:* [green]#accepted# +
+*Deciders:* Tim Honermann +
+*Date:* 31.07.2022
+
+== Context and Problem Statement
+
+To look up books a big collection of books is needed. There are a few free APIs which is the base requirement (no costs). The user needs to look up books by search input. The API needs to deliver metadata about the book (title, author, etc.) and also the cover image.
+
+== Considered Options
+
+* Open Library
+* Google Books
+* ISBNdb
+
+== Decision Outcome
+
+Chosen option: "Google Books", because it is easy to use, delivers a nice structured JSON and includes links to cover images without having to call a second API.
+
+== Pros and Cons of the Options
+
+=== Open Library
+
+* Good, because it is free
+* Good, because it includes a huge collection of books
+* Good, because it offers a search and a cover image API
+* Bad, because the JSON is not well-structured and mixes multiple different ISBNs in one book
+
+=== Google Books
+
+* Good, because it is free
+* Good, because it includes a huge collection of books
+* Good, because it offers a search API that delivers metadata including a cover image link
+* Good, because it has a well-structured JSON
+
+=== ISBNdb
+
+* Good, because it includes a huge collection of books
+* Bad, because it is not free -> killer criteria
+
+== Links
+
+* https://openlibrary.org/[Open Library]
+* https://developers.google.com/books[Google Books]
+* https://isbndb.com/apidocs/v2/[ISBNdb]
+

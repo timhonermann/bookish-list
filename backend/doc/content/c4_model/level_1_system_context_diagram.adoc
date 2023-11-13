@@ -1,0 +1,11 @@
+= Level 1 - System Context Diagram
+Tim Honermann <tim.honermann@windowslive.com>
+3.0, August 23, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+[plantuml]
+----
+include::../../c4model/context_diagram.puml[]
+----

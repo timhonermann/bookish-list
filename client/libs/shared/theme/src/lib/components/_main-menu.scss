@@ -1,0 +1,9 @@
+@use "../base-colors";
+
+:root {
+  --main-menu-background-color: #{base-colors.$gray-02};
+  --main-menu-item-text-color: #{base-colors.$gray-12};
+  --main-menu-item-icon-color: #{base-colors.$gray-10};
+  --main-menu-item-active-color: #{base-colors.$gray-04};
+  --main-menu-item-active-border-color: #{base-colors.$color-pastel-green-base};
+}

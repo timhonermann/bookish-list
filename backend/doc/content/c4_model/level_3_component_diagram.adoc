@@ -1,0 +1,11 @@
+= Level 3 - Component Diagram
+Tim Honermann <tim.honermann@windowslive.com>
+3.0, September 05, 2022
+:toc:
+:icons: font
+:url-quickref: https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/
+
+[plantuml]
+----
+include::../../c4model/component_diagram.puml[]
+----
