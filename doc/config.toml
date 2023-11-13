@@ -1,4 +1,4 @@
-baseURL = 'https://bookish-list.gitlab.io/backend'
+baseURL = 'https://timhonermann.github.io/bookish-list/'
 languageCode = 'en-us'
 title = 'Bookish List'
 theme = "geekdoc"
