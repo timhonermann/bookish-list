@@ -33,6 +33,7 @@ jobs:
           ruby-version: 3.2
 
       - run: gem install asciidoctor
+      - run: gem install asciidoctor-diagram
       - run: gem install asciidoctor-rouge
       - run: gem install asciidoctor-bibtex
       - run: gem install asciimath
