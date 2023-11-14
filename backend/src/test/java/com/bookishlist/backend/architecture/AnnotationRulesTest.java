@@ -6,7 +6,9 @@ import com.tngtech.archunit.core.importer.ImportOption;
 import com.tngtech.archunit.junit.AnalyzeClasses;
 import com.tngtech.archunit.junit.ArchTest;
 import com.tngtech.archunit.lang.ArchRule;
+import jakarta.persistence.Entity;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +25,7 @@ public class AnnotationRulesTest {
         .or().areAnnotatedWith(Controller.class)
         .should().haveSimpleNameEndingWith("Controller");
 
-    /**
-     * Uncomment when first repository and entity is added
+
      @ArchTest final static ArchRule repositoryAnnotatedClassShouldHaveRepositoryPostfix = classes()
      .that().areAnnotatedWith(Repository.class)
      .should().haveSimpleNameEndingWith("Repository");
@@ -32,5 +33,4 @@ public class AnnotationRulesTest {
      @ArchTest final static ArchRule entityAnnotatedClassShouldResideInEntityPackage = classes()
      .that().areAnnotatedWith(Entity.class)
      .should().resideInAnyPackage("..entities..");
-     */
 }

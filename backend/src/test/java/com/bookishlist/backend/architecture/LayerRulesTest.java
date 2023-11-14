@@ -18,9 +18,9 @@ public class LayerRulesTest {
     static final ArchRule layerRules = layeredArchitecture().consideringAllDependencies()
         .layer(CONTROLLERS).definedBy("..controllers..")
         .layer(SERVICES).definedBy("..services..")
-//        .layer(REPOSITORIES).definedBy("..repositories") TODO: Comment in as soon as repositories are added
+        .layer(REPOSITORIES).definedBy("..repositories")
         .layer(MAPPERS).definedBy("..mappers..")
-//        .whereLayer(REPOSITORIES).mayOnlyBeAccessedByLayers(SERVICES)
+        .whereLayer(REPOSITORIES).mayOnlyBeAccessedByLayers(SERVICES)
         .whereLayer(SERVICES).mayOnlyBeAccessedByLayers(CONTROLLERS, SERVICES)
         .whereLayer(CONTROLLERS).mayNotBeAccessedByAnyLayer()
         .whereLayer(MAPPERS).mayOnlyBeAccessedByLayers(CONTROLLERS);
