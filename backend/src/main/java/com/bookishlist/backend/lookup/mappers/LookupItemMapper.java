@@ -23,8 +23,8 @@ public class LookupItemMapper implements Function<LookupItemResponse, LookupItem
         return new LookupItem(
             isbn,
             itemResponse.volumeInfo().title(),
-            itemResponse.volumeInfo().authors(),
-            itemResponse.volumeInfo().categories(),
+            String.join(", ", itemResponse.volumeInfo().authors()),
+            String.join(", ", itemResponse.volumeInfo().categories()),
             itemResponse.volumeInfo().imageLinks().thumbnail()
         );
     }

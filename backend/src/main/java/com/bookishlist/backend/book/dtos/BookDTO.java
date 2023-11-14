@@ -1,16 +1,15 @@
-package com.bookishlist.backend.lookup.dtos;
+package com.bookishlist.backend.book.dtos;
 
-import java.util.List;
 import java.util.Objects;
 
-public record LookupItem(
+public record BookDTO(
     String isbn,
     String title,
     String author,
     String category,
     String thumbnailUrl
 ) {
-    public LookupItem {
+    public BookDTO {
         Objects.requireNonNull(isbn);
         Objects.requireNonNull(title);
         Objects.requireNonNull(author);
