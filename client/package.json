@@ -8,7 +8,8 @@
     "build:release": "nx run-many --target=build",
     "lint:all": "npm run lint:ts",
     "lint:ts": "nx run-many --all --parallel --target=lint",
-    "test:ci": "nx affected --target=test --base=origin/main",
+    "test:ci": "nx run-many --all --target=test --coverage --skip-nx-cache",
+    "test:affected": "nx affected --target=test --base=origin/main",
     "test:release": "nx run-many --parallel --target=test"
   },
   "private": true,
