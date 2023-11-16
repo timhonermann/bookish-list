@@ -7,7 +7,11 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
-import { authEffects } from '@bookish-list/frontend/shared/auth';
+import {
+  authEffects,
+  authFeatureKey,
+  authReducer,
+} from '@bookish-list/frontend/shared/auth';
 import {
   APP_CONFIG,
   AppConfig,
@@ -58,7 +62,9 @@ export function getApplicationConfig(config: AppConfig): ApplicationConfig {
           logLevel: LogLevel.Warn,
         },
       }),
-      provideStore({}),
+      provideStore({
+        [authFeatureKey]: authReducer,
+      }),
       provideEffects(authEffects),
       provideStoreDevtools({
         name: 'Bookish List',
