@@ -6,7 +6,7 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { FrontendRoutes } from '@bookish-list/frontend/shared/globals';
-import { map } from 'rxjs';
+import { map, take } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
 
 export const authGuard: CanActivateFn = (
@@ -18,6 +18,7 @@ export const authGuard: CanActivateFn = (
   const router = inject(Router);
 
   return authenticationService.isAuthenticated$.pipe(
+    take(1),
     map((isAuthenticated) => {
       if (isAuthenticated) {
         return true;

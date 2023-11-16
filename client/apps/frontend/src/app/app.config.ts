@@ -7,7 +7,6 @@ import {
 import { BrowserModule } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
-import { AuthConfig, AuthModule, provideAuth0 } from '@auth0/auth0-angular';
 import { authEffects } from '@bookish-list/frontend/shared/auth';
 import {
   APP_CONFIG,
@@ -17,35 +16,54 @@ import {
 import { IconService } from '@bookish-list/shared/ui/icons';
 import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
+import { provideStoreDevtools } from '@ngrx/store-devtools';
+import {
+  LogLevel,
+  OidcSecurityService,
+  provideAuth,
+} from 'angular-auth-oidc-client';
+import { map, Observable, tap } from 'rxjs';
+import { environment } from '../environments/environment';
 import { appRoutes } from './app.routes';
 
-function getAuth0Config(config: AppConfig): AuthConfig {
-  return {
-    domain: config.domain,
-    clientId: config.clientId,
-    authorizationParams: {
-      redirect_uri: window.location.origin,
-      audience: config.audience,
-    },
-  };
-}
-
-function initializeAppFactory(iconService: IconService): () => void {
-  return () => {
-    iconService.init();
-  };
+function initializeAppFactory(
+  oidcSecurityService: OidcSecurityService,
+  iconService: IconService
+): () => Observable<void> {
+  return () =>
+    oidcSecurityService.checkAuth().pipe(
+      tap(() => iconService.init()),
+      map(() => undefined)
+    );
 }
 
 export function getApplicationConfig(config: AppConfig): ApplicationConfig {
   return {
     providers: [
-      provideAuth0(),
-      importProvidersFrom(
-        BrowserModule,
-        AuthModule.forRoot(getAuth0Config(config))
-      ),
+      importProvidersFrom(BrowserModule),
+      provideAuth({
+        config: {
+          authority: config.domain,
+          clientId: config.clientId,
+          redirectUrl: window.location.origin,
+          postLogoutRedirectUri: window.location.origin,
+          scope: 'openid profile email offline_access',
+          responseType: 'code',
+          silentRenew: true,
+          useRefreshToken: true,
+          ignoreNonceAfterRefresh: true,
+          customParamsAuthRequest: {
+            audience: config.audience,
+          },
+          logLevel: LogLevel.Warn,
+        },
+      }),
       provideStore({}),
       provideEffects(authEffects),
+      provideStoreDevtools({
+        name: 'Bookish List',
+        logOnly: environment.production,
+      }),
       provideHttpClient(withInterceptors([serverUrlInterceptor()])),
       {
         provide: APP_CONFIG,
@@ -54,7 +72,7 @@ export function getApplicationConfig(config: AppConfig): ApplicationConfig {
       {
         provide: APP_INITIALIZER,
         useFactory: initializeAppFactory,
-        deps: [IconService],
+        deps: [OidcSecurityService, IconService],
         multi: true,
       },
       provideRouter(appRoutes),

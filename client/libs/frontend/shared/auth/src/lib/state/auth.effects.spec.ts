@@ -4,7 +4,7 @@ import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable, of } from 'rxjs';
 import { AuthenticationService } from '../services/authentication.service';
 import { AuthActions } from './auth.actions';
-import { login$, logout$ } from './auth.effects';
+import { checkAuth$, login$, logout$ } from './auth.effects';
 
 describe('AuthEffects', () => {
   let actions: Observable<unknown>;
@@ -30,7 +30,7 @@ describe('AuthEffects', () => {
       // arrange
       const loginSpy = jest
         .spyOn(authenticationService, 'login')
-        .mockReturnValue(of(undefined));
+        .mockReturnValue(undefined);
 
       actions = of(AuthActions.login());
 
@@ -63,6 +63,31 @@ describe('AuthEffects', () => {
       // assert
       result$.subscribe(() => {
         expect(logoutSpy).toHaveBeenCalled();
+      });
+    }));
+  });
+
+  describe('checkAuth$', () => {
+    it('should create', () => {
+      expect(checkAuth$).toBeTruthy();
+    });
+
+    it('should check auth', waitForAsync(() => {
+      // arrange
+      const userId = '123';
+      const checkAuthSpy = jest
+        .spyOn(authenticationService, 'checkAuth')
+        .mockReturnValue(of(userId));
+
+      actions = of(AuthActions.checkAuth());
+
+      // act
+      const result$ = TestBed.runInInjectionContext(() => checkAuth$());
+
+      // assert
+      result$.subscribe((result) => {
+        expect(result).toEqual(AuthActions.checkAuthSuccess({ userId }));
+        expect(checkAuthSpy).toHaveBeenCalled();
       });
     }));
   });

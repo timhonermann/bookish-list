@@ -1,22 +1,30 @@
 import { inject, Injectable } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
-import { Observable } from 'rxjs';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private readonly authService = inject(AuthService);
+  private readonly oidcSecurityService = inject(OidcSecurityService);
 
   get isAuthenticated$(): Observable<boolean> {
-    return this.authService.isAuthenticated$;
+    return this.oidcSecurityService.isAuthenticated$.pipe(
+      map((res) => res.isAuthenticated)
+    );
   }
 
-  login(): Observable<void> {
-    return this.authService.loginWithRedirect();
+  login(): void {
+    this.oidcSecurityService.authorize();
   }
 
   logout(): Observable<void> {
-    return this.authService.logout();
+    return this.oidcSecurityService.logoff().pipe(map(() => undefined));
+  }
+
+  checkAuth(): Observable<string | null> {
+    return this.oidcSecurityService
+      .checkAuth()
+      .pipe(map((res) => res?.userData?.sub ?? null));
   }
 }

@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIconTestingModule } from '@angular/material/icon/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthActions } from '@bookish-list/frontend/shared/auth';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
@@ -12,7 +13,7 @@ describe('ShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShellComponent, RouterTestingModule],
+      imports: [ShellComponent, RouterTestingModule, MatIconTestingModule],
       providers: [provideMockStore()],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();

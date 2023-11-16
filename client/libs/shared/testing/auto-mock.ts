@@ -42,6 +42,6 @@ export function provideAbstractMock<T, M extends T>(
   return { provide: type, useValue: mock };
 }
 
-export function provideMock<T>(type: new (...args: unknown[]) => T): Provider {
+export function provideMock<T>(type: new (...args: any[]) => T): Provider {
   return { provide: type, useValue: autoMock(type) };
 }

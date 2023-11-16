@@ -1,34 +1,20 @@
-import { TestBed } from '@angular/core/testing';
-import { AuthService } from '@auth0/auth0-angular';
+import { TestBed, waitForAsync } from '@angular/core/testing';
+import { provideMock } from '@bookish-list/shared/testing';
+import { LoginResponse, OidcSecurityService } from 'angular-auth-oidc-client';
 import { of } from 'rxjs';
 
 import { AuthenticationService } from './authentication.service';
 
-class AuthServiceMock {
-  isAuthenticated$ = of(null);
-
-  user$ = of({});
-
-  loginWithRedirect = jest.fn();
-
-  logout = jest.fn();
-}
-
-describe('AuthService', () => {
+describe('AuthenticationService', () => {
   let service: AuthenticationService;
-  let authService: AuthService;
+  let oidcSecurityService: OidcSecurityService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        {
-          provide: AuthService,
-          useClass: AuthServiceMock,
-        },
-      ],
+      providers: [provideMock(OidcSecurityService)],
     });
 
-    authService = TestBed.inject(AuthService);
+    oidcSecurityService = TestBed.inject(OidcSecurityService);
     service = TestBed.inject(AuthenticationService);
   });
 
@@ -37,9 +23,9 @@ describe('AuthService', () => {
   });
 
   describe('login', () => {
-    it('should call loginWithRedirect', () => {
+    it('should call authorize', () => {
       // arrange
-      const spy = jest.spyOn(authService, 'loginWithRedirect');
+      const spy = jest.spyOn(oidcSecurityService, 'authorize');
 
       // act
       service.login();
@@ -50,15 +36,43 @@ describe('AuthService', () => {
   });
 
   describe('logout', () => {
-    it('should call logout', () => {
+    it('should call logout', waitForAsync(() => {
       // arrange
-      const spy = jest.spyOn(authService, 'logout');
+      const spy = jest
+        .spyOn(oidcSecurityService, 'logoff')
+        .mockReturnValue(of(undefined));
 
       // act
-      service.logout();
+      const result$ = service.logout();
 
       // assert
-      expect(spy).toHaveBeenCalled();
-    });
+      result$.subscribe(() => {
+        expect(spy).toHaveBeenCalled();
+      });
+    }));
+  });
+
+  describe('checkAuth', () => {
+    it('should call checkAuth', waitForAsync(() => {
+      // arrange
+      const sub = 'gdata|123';
+      const loginResponse = {
+        userData: {
+          sub,
+        },
+      } as LoginResponse;
+      
+      jest
+        .spyOn(oidcSecurityService, 'checkAuth')
+        .mockReturnValue(of(loginResponse));
+
+      // act
+      const result$ = service.checkAuth();
+
+      // assert
+      result$.subscribe((result) => {
+        expect(result).toEqual(sub);
+      });
+    }));
   });
 });

@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthActions } from '@bookish-list/frontend/shared/auth';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'bookish-list-root',
@@ -8,4 +10,10 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [RouterOutlet],
 })
-export class AppComponent {}
+export class AppComponent implements OnInit {
+  private readonly store = inject(Store);
+
+  ngOnInit(): void {
+    this.store.dispatch(AuthActions.checkAuth());
+  }
+}
