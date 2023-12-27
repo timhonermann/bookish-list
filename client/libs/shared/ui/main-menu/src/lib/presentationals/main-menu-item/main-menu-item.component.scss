@@ -1,10 +1,13 @@
 @use '../../styles/main-menu-vars';
 
 :host {
-  display: block;
-  color: var(--main-menu-item-text-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  color: var(--main-menu-item-text-color);
   width: main-menu-vars.$main-menu-width;
+  height: main-menu-vars.$main-menu-height;
 }
 
 .menu-item {
@@ -12,16 +15,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100px;
   padding: 20px;
   gap: 13px;
+  border-radius: 20px;
 
   &.active {
     background-color: var(--main-menu-item-active-color);
+
+    .icon {
+      color: var(--main-menu-item-active-icon-color);
+    }
+
+    .label {
+      color: var(--main-menu-item-active-text-color);
+    }
   }
 
   &:hover {
-    background-color: var(--main-menu-item-active-color);
+    background-color: var(--main-menu-item-hover-color);
+
+    .icon {
+      color: var(--main-menu-item-hover-icon-color);
+    }
+
+    .label {
+      color: var(--main-menu-item-hover-text-color);
+    }
   }
 
   .icon {
