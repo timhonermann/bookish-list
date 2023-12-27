@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+  margin: 5px 0;
   color: var(--main-menu-item-text-color);
   width: main-menu-vars.$main-menu-width;
   height: main-menu-vars.$main-menu-height;
@@ -16,6 +16,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  cursor: pointer;
   gap: 13px;
   border-radius: 20px;
 
