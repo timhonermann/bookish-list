@@ -5,9 +5,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "libs/frontend/shared/auth/tsconfig.*?.json"
-        ]
+        "project": ["libs/frontend/shared/auth/tsconfig.*?.json"]
       },
       "extends": [
         "plugin:@nx/angular",

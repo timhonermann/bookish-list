@@ -61,7 +61,7 @@ describe('AuthenticationService', () => {
           sub,
         },
       } as LoginResponse;
-      
+
       jest
         .spyOn(oidcSecurityService, 'checkAuth')
         .mockReturnValue(of(loginResponse));

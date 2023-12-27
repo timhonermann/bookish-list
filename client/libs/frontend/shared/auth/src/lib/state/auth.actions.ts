@@ -7,13 +7,13 @@ export class AuthActions {
 
   static readonly checkAuthSuccess = createAction(
     `${actionPrefix} Check Auth Success`,
-    props<{ userId: string | null }>()
+    props<{ userId: string | null }>(),
   );
 
   static readonly logout = createAction(`${actionPrefix} Logout`);
 
   static readonly logoutSuccess = createAction(
-    `${actionPrefix} Logout Success`
+    `${actionPrefix} Logout Success`,
   );
 
   static readonly checkAuth = createAction(`${actionPrefix} Check Auth`);

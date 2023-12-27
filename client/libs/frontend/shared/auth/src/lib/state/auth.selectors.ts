@@ -6,6 +6,6 @@ const featureSelector = createFeatureSelector<AuthState>(authFeatureKey);
 export class AuthSelectors {
   static readonly userId = createSelector(
     featureSelector,
-    (state) => state.userId
+    (state) => state.userId,
   );
 }

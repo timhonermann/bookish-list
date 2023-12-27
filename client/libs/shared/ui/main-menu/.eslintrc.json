@@ -5,9 +5,7 @@
     {
       "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "libs/shared/ui/main-menu/tsconfig.*?.json"
-        ]
+        "project": ["libs/shared/ui/main-menu/tsconfig.*?.json"]
       },
       "extends": [
         "plugin:@nx/angular",

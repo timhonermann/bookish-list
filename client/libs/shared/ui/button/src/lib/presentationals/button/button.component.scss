@@ -1,6 +1,6 @@
-@use "sass:math";
-@use "../../styles/button-vars";
-@use "partials/font";
+@use 'sass:math';
+@use '../../styles/button-vars';
+@use 'partials/font';
 
 @mixin button-coloring($color) {
   &.filled {
@@ -259,12 +259,14 @@ button {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  padding: button-vars.$button-padding-top-bottom button-vars.$button-padding-left-right;
+  padding: button-vars.$button-padding-top-bottom
+    button-vars.$button-padding-left-right;
   border: none;
   font-family: font.$font-family-main;
-  transition: background-color button-vars.$transition-duration,
-  border-color button-vars.$transition-duration,
-  color button-vars.$transition-duration;
+  transition:
+    background-color button-vars.$transition-duration,
+    border-color button-vars.$transition-duration,
+    color button-vars.$transition-duration;
   font-weight: inherit;
   user-select: none;
   cursor: unset;

@@ -35,7 +35,7 @@ export function autoMock<T>(obj: new (...args: any[]) => T): T {
 
 export function provideAbstractMock<T, M extends T>(
   type: abstract new (...args: any[]) => T,
-  mockType: new (...args: any[]) => M
+  mockType: new (...args: any[]) => M,
 ): Provider {
   const mock = autoMock(mockType);
 

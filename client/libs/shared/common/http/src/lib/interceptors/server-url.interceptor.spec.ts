@@ -28,7 +28,7 @@ describe('ServerUrlInterceptor', () => {
 
     // act
     const result$ = TestBed.runInInjectionContext(() =>
-      serverUrlInterceptor()(req, next)
+      serverUrlInterceptor()(req, next),
     );
 
     // assert
@@ -47,7 +47,7 @@ describe('ServerUrlInterceptor', () => {
 
     // act
     const result$ = TestBed.runInInjectionContext(() =>
-      serverUrlInterceptor()(req, next)
+      serverUrlInterceptor()(req, next),
     );
 
     // assert
@@ -66,7 +66,7 @@ describe('ServerUrlInterceptor', () => {
 
     // act
     const result$ = TestBed.runInInjectionContext(() =>
-      serverUrlInterceptor()(req, next)
+      serverUrlInterceptor()(req, next),
     );
 
     // assert
@@ -87,7 +87,7 @@ describe('ServerUrlInterceptor', () => {
 
     // act
     const result$ = TestBed.runInInjectionContext(() =>
-      serverUrlInterceptor()(req, next)
+      serverUrlInterceptor()(req, next),
     );
 
     // act

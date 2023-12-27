@@ -30,9 +30,7 @@
               },
               {
                 "sourceTag": "type:shared",
-                "onlyDependOnLibsWithTags": [
-                  "type:shared"
-                ]
+                "onlyDependOnLibsWithTags": ["type:shared"]
               },
               {
                 "sourceTag": "type:common",

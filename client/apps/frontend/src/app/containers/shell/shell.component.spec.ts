@@ -33,7 +33,7 @@ describe('ShellComponent', () => {
       // arrange
       const dispatchSpy = jest.spyOn(mockStore, 'dispatch');
       const logoutMenuItem = component.utilityMenuItems.find(
-        (i) => i.icon === 'logout'
+        (i) => i.icon === 'logout',
       );
 
       // act

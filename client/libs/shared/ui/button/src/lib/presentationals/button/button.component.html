@@ -16,10 +16,7 @@
   }
 
   @if (display !== 'icon-only') {
-    <span
-      [class.transparent]="isSpinning"
-      class="label"
-    >
+    <span [class.transparent]="isSpinning" class="label">
       {{ label }}
     </span>
   }
@@ -32,10 +29,7 @@
 </button>
 
 @if (display === 'icon-only' && label) {
-  <span
-    (click)="button.click()"
-    class="external-label"
-  >
+  <span (click)="button.click()" class="external-label">
     {{ label }}
   </span>
 }

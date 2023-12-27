@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HttpService {
   private readonly http = inject(HttpClient);
@@ -23,7 +23,7 @@ export class HttpService {
   patch<T>(url: string, body: unknown, options?: {}): Observable<T> {
     const headers = new HttpHeaders().set(
       'Content-Type',
-      'application/json-patch+json'
+      'application/json-patch+json',
     );
 
     return this.http.patch<T>(url, body, { ...options, headers });

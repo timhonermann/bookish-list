@@ -11,7 +11,7 @@ import { AuthenticationService } from '../services/authentication.service';
 
 export const authGuard: CanActivateFn = (
   _route: ActivatedRouteSnapshot,
-  _state: RouterStateSnapshot
+  _state: RouterStateSnapshot,
 ) => {
   const authenticationService = inject(AuthenticationService);
 
@@ -25,6 +25,6 @@ export const authGuard: CanActivateFn = (
       }
 
       return router.parseUrl(FrontendRoutes.AUTH);
-    })
+    }),
   );
 };

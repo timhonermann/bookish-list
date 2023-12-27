@@ -34,7 +34,7 @@ describe('AuthGuard', () => {
     const state = { url: 'test-url' } as RouterStateSnapshot;
 
     const canActivate$ = TestBed.runInInjectionContext(() =>
-      authGuard(route, state)
+      authGuard(route, state),
     ) as Observable<boolean>;
 
     canActivate$.subscribe(() => {
@@ -51,7 +51,7 @@ describe('AuthGuard', () => {
     const state = { url: 'test-url' } as RouterStateSnapshot;
 
     const canActivate$ = TestBed.runInInjectionContext(() =>
-      authGuard(route, state)
+      authGuard(route, state),
     ) as Observable<boolean>;
 
     canActivate$.subscribe(() => {

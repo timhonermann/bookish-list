@@ -1,7 +1,7 @@
-@use "../partials/font";
-@use "sass:string";
+@use '../partials/font';
+@use 'sass:string';
 
-@mixin h1($color: "primary") {
+@mixin h1($color: 'primary') {
   font-family: font.$font-family-main;
   font-size: 28px;
   font-weight: 800;
@@ -11,7 +11,7 @@
   @include font-color($color);
 }
 
-@mixin h2($color: "primary") {
+@mixin h2($color: 'primary') {
   font-family: font.$font-family-main;
   font-size: 24px;
   font-weight: 900;
@@ -22,7 +22,7 @@
   @include font-color($color);
 }
 
-@mixin h3($color: "primary") {
+@mixin h3($color: 'primary') {
   font-family: font.$font-family-main;
   font-size: 18px;
   font-weight: 800;
@@ -37,7 +37,7 @@
   }
 }
 
-@mixin h4($color: "primary") {
+@mixin h4($color: 'primary') {
   font-family: font.$font-family-main;
   font-size: 15px;
   font-weight: 800;
@@ -55,7 +55,7 @@
   margin: 0 0 12px;
 }
 
-@mixin body($color: "primary") {
+@mixin body($color: 'primary') {
   font-family: font.$font-family-main;
   font-size: 15px;
   font-weight: 300;
@@ -65,7 +65,7 @@
   @include font-color($color);
 }
 
-@mixin body-small($color: "primary") {
+@mixin body-small($color: 'primary') {
   font-family: font.$font-family-main;
   font-size: 14px;
   font-weight: 300;
@@ -81,7 +81,7 @@
   }
 }
 
-@mixin caption($color: "primary") {
+@mixin caption($color: 'primary') {
   font-size: 12px;
   font-family: font.$font-family-main;
   font-weight: 500;
@@ -97,7 +97,7 @@
   }
 }
 
-@mixin small-print($color: "primary") {
+@mixin small-print($color: 'primary') {
   font-size: 11px;
   font-family: font.$font-family-main;
   font-weight: 500;
@@ -115,15 +115,15 @@
 
 @mixin font-color($pallete) {
   $color: map-get(
-      (
-        "primary": "primary",
-        "accent": "accent",
-        "disruption": "disruption",
-        "gray-primary": "gray-primary",
-        "gray-secondary": "gray-secondary",
-        "inverted": "inverted",
-      ),
-      string.quote($pallete)
+    (
+      'primary': 'primary',
+      'accent': 'accent',
+      'disruption': 'disruption',
+      'gray-primary': 'gray-primary',
+      'gray-secondary': 'gray-secondary',
+      'inverted': 'inverted',
+    ),
+    string.quote($pallete)
   );
 
   @if ($color == null) {

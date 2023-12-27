@@ -32,12 +32,12 @@ import { appRoutes } from './app.routes';
 
 function initializeAppFactory(
   oidcSecurityService: OidcSecurityService,
-  iconService: IconService
+  iconService: IconService,
 ): () => Observable<void> {
   return () =>
     oidcSecurityService.checkAuth().pipe(
       tap(() => iconService.init()),
-      map(() => undefined)
+      map(() => undefined),
     );
 }
 
@@ -69,7 +69,8 @@ export function getApplicationConfig(config: AppConfig): ApplicationConfig {
       provideStoreDevtools({
         name: 'Bookish List',
         logOnly: environment.production,
-      connectInZone: true}),
+        connectInZone: true,
+      }),
       provideHttpClient(withInterceptors([serverUrlInterceptor()])),
       {
         provide: APP_CONFIG,

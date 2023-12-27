@@ -18,7 +18,7 @@ export class IconService {
   private registerSvgIcon(key: IconType, assetUrl: string): void {
     this.matIconRegistry.addSvgIcon(
       key,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(assetUrl)
+      this.domSanitizer.bypassSecurityTrustResourceUrl(assetUrl),
     );
   }
 }

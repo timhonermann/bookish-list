@@ -1,5 +1,9 @@
-<div [routerLink]="menuItem.routerLink ?? undefined" (click)="menuItem.action?.()" routerLinkActive="active"
-     class="menu-item">
-  <mat-icon class="icon" [svgIcon]="menuItem.icon"/>
+<div
+  [routerLink]="menuItem.routerLink ?? undefined"
+  (click)="menuItem.action?.()"
+  routerLinkActive="active"
+  class="menu-item"
+>
+  <mat-icon class="icon" [svgIcon]="menuItem.icon" />
   <span class="label">{{ menuItem.label }}</span>
 </div>

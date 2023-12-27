@@ -19,6 +19,6 @@ fetch(environment.configUrl)
     const applicationConfig = getApplicationConfig(config);
 
     bootstrapApplication(AppComponent, applicationConfig).catch((err) =>
-      console.error(err)
+      console.error(err),
     );
   });

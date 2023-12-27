@@ -8,7 +8,7 @@ export const appRoutes: Routes = [
     path: FrontendRoutes.AUTH,
     loadChildren: () =>
       import('@bookish-list/frontend/feature/auth').then(
-        (lib) => lib.AUTH_ROUTES
+        (lib) => lib.AUTH_ROUTES,
       ),
   },
   {
@@ -19,7 +19,7 @@ export const appRoutes: Routes = [
         path: FrontendRoutes.LIST,
         loadChildren: () =>
           import('@bookish-list/frontend/feature/list').then(
-            (lib) => lib.LIST_ROUTES
+            (lib) => lib.LIST_ROUTES,
           ),
       },
       {
