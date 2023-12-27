@@ -69,7 +69,7 @@ export function getApplicationConfig(config: AppConfig): ApplicationConfig {
       provideStoreDevtools({
         name: 'Bookish List',
         logOnly: environment.production,
-      }),
+      connectInZone: true}),
       provideHttpClient(withInterceptors([serverUrlInterceptor()])),
       {
         provide: APP_CONFIG,
