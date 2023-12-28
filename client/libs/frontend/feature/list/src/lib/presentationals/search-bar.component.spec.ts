@@ -9,8 +9,8 @@ describe('SearchBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchBarComponent],
-      providers: [provideAnimations(), MatIconTestingModule],
+      imports: [SearchBarComponent, MatIconTestingModule],
+      providers: [provideAnimations()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SearchBarComponent);

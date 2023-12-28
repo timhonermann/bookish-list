@@ -2,7 +2,7 @@
   <mat-label>Books</mat-label>
   <input [formControl]="searchControl" [matAutocomplete]="searchResults" matInput
          placeholder="Search for titles or authors" />
-  <bookish-list-button matSuffix shape="rounded" icon="search" size="small" (clicked)="search()" />
+  <mat-icon matSuffix svgIcon="search"></mat-icon>
 </mat-form-field>
 
 <mat-autocomplete #searchResults="matAutocomplete">

@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { ButtonComponent } from '@bookish-list/shared/ui/button';
 
 @Component({
   selector: 'bookish-list-search-bar',
@@ -11,9 +11,9 @@ import { ButtonComponent } from '@bookish-list/shared/ui/button';
   imports: [
     CommonModule,
     MatInputModule,
-    ButtonComponent,
     ReactiveFormsModule,
     MatAutocompleteModule,
+    MatIconModule,
   ],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss',
