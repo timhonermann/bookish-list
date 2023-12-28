@@ -13,10 +13,15 @@ describe('ShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShellComponent, RouterTestingModule, MatIconTestingModule],
       providers: [provideMockStore()],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
+    })
+      .overrideComponent(ShellComponent, {
+        set: {
+          imports: [RouterTestingModule, MatIconTestingModule],
+          schemas: [CUSTOM_ELEMENTS_SCHEMA],
+        },
+      })
+      .compileComponents();
 
     mockStore = TestBed.inject(MockStore);
     fixture = TestBed.createComponent(ShellComponent);
