@@ -1,6 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { ListActions } from '../../state/list.actions';
 import { ListSelectors } from '../../state/list.selectors';
 import { ListComponent } from './list.component';
 
@@ -30,5 +31,21 @@ describe('ListComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('onSearchValueChanged', () => {
+    it('should dispatch lookupItems action', () => {
+      // arrange
+      const searchValue = 'some search value';
+      const dispatchSpy = jest.spyOn(store, 'dispatch');
+
+      // act
+      component.onSearchValueChanged(searchValue);
+
+      // assert
+      expect(dispatchSpy).toHaveBeenCalledWith(
+        ListActions.lookupItems({ searchValue }),
+      );
+    });
   });
 });

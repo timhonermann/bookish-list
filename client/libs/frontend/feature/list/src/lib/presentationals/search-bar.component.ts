@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   DestroyRef,
@@ -27,6 +27,7 @@ const INPUT_DEBOUNCE_MS = 400;
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatIconModule,
+    NgOptimizedImage,
   ],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss',

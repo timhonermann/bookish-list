@@ -1,4 +1,4 @@
-<mat-form-field appearance="outline">
+<mat-form-field class="form-field" appearance="outline">
   <mat-label>Books</mat-label>
   <input [formControl]="searchControl" [matAutocomplete]="searchResults" matInput
          placeholder="Search for titles or authors" />
@@ -7,6 +7,14 @@
 
 <mat-autocomplete #searchResults="matAutocomplete">
   @for (result of searchResult; track result) {
-    <mat-option [value]="result.title">{{ result.title }}</mat-option>
+    <mat-option class="option-container" [value]="result.title">
+      <div class="content">
+        <img [ngSrc]="result.thumbnailUrl" alt="Thumbnail" width="64" height="96" />
+        <div class="description">
+          <h3 class="title">{{ result.title }}</h3>
+          <span>{{ result.author }}</span>
+        </div>
+      </div>
+    </mat-option>
   }
 </mat-autocomplete>
