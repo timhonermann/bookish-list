@@ -1,6 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { SearchBarComponent } from '../../presentationals/search-bar.component';
+import { ListActions } from '../../state/list.actions';
+import { ListSelectors } from '../../state/list.selectors';
 
 @Component({
   selector: 'bookish-list-list',
@@ -9,4 +12,12 @@ import { SearchBarComponent } from '../../presentationals/search-bar.component';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent {}
+export class ListComponent {
+  private readonly store = inject(Store);
+
+  searchResult = this.store.selectSignal(ListSelectors.searchResults);
+
+  onSearchValueChanged(searchValue: string | null): void {
+    this.store.dispatch(ListActions.lookupItems({ searchValue }));
+  }
+}

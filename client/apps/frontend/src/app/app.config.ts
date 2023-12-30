@@ -22,6 +22,7 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import {
+  authInterceptor,
   LogLevel,
   OidcSecurityService,
   provideAuth,
@@ -45,6 +46,9 @@ export function getApplicationConfig(config: AppConfig): ApplicationConfig {
   return {
     providers: [
       importProvidersFrom(BrowserModule),
+      provideHttpClient(
+        withInterceptors([serverUrlInterceptor(), authInterceptor()]),
+      ),
       provideAuth({
         config: {
           authority: config.domain,
@@ -59,7 +63,8 @@ export function getApplicationConfig(config: AppConfig): ApplicationConfig {
           customParamsAuthRequest: {
             audience: config.audience,
           },
-          logLevel: LogLevel.Warn,
+          logLevel: LogLevel.Debug,
+          secureRoutes: [config.serverUrl],
         },
       }),
       provideStore({
@@ -71,7 +76,6 @@ export function getApplicationConfig(config: AppConfig): ApplicationConfig {
         logOnly: environment.production,
         connectInZone: true,
       }),
-      provideHttpClient(withInterceptors([serverUrlInterceptor()])),
       {
         provide: APP_CONFIG,
         useValue: config,

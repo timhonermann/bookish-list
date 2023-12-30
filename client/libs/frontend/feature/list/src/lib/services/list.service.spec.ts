@@ -43,12 +43,25 @@ describe('ListService', () => {
         .mockReturnValue(of(lookupItems));
 
       // act
-      const result$ = service.lookupItem(searchValue);
+      const result$ = service.lookupItems(searchValue);
 
       // assert
       result$.subscribe((result) => {
         expect(result).toEqual(lookupItems);
         expect(getSpy).toHaveBeenCalledWith('/api/v1/lookup', { params });
+      });
+    }));
+
+    it('should return empty list when searchValue is null', waitForAsync(() => {
+      // arrange
+      const searchValue = null;
+
+      // act
+      const result$ = service.lookupItems(searchValue);
+
+      // assert
+      result$.subscribe((result) => {
+        expect(result).toEqual([]);
       });
     }));
   });
