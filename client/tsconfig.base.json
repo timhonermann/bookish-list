@@ -33,6 +33,7 @@
       "@bookish-list/shared/testing": ["libs/shared/testing/index.ts"],
       "@bookish-list/shared/theme": ["libs/shared/theme/src/index.ts"],
       "@bookish-list/shared/ui/button": ["libs/shared/ui/button/src/index.ts"],
+      "@bookish-list/shared/ui/dialog": ["libs/shared/ui/dialog/src/index.ts"],
       "@bookish-list/shared/ui/icons": ["libs/shared/ui/icons/src/index.ts"],
       "@bookish-list/shared/ui/main-menu": [
         "libs/shared/ui/main-menu/src/index.ts"

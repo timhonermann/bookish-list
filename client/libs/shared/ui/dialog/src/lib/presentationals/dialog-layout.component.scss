@@ -1,0 +1,28 @@
+:host {
+  height: inherit;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  height: inherit;
+
+  .title {
+    margin-bottom: 15px;
+    padding: 20px 20px 0;
+    color: var(--color-font-accent);
+  }
+
+  .content {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+}
