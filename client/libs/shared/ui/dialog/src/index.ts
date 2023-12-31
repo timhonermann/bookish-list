@@ -1,1 +1,3 @@
-export * from './lib/shared-ui-dialog/shared-ui-dialog.component';
+export * from './lib/services/dialog.service';
+export * from './lib/models/dialog.models';
+export * from './lib/presentationals/dialog-layout/dialog-layout.component';

@@ -10,11 +10,14 @@ import {
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import {
+  MatAutocompleteModule,
+  MatAutocompleteSelectedEvent,
+} from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
-import { LookupItem } from '../models/list.models';
+import { LookupItem } from '../../models/list.models';
 
 const INPUT_DEBOUNCE_MS = 400;
 
@@ -39,10 +42,16 @@ export class SearchBarComponent implements OnInit {
 
   @Output() searchValueChanged = new EventEmitter<string | null>();
 
+  @Output() optionSelected = new EventEmitter<LookupItem>();
+
   readonly searchControl = new FormControl<string>('');
 
   ngOnInit(): void {
     this.observeInputChanges();
+  }
+
+  onOptionSelected(event: MatAutocompleteSelectedEvent): void {
+    this.optionSelected.emit(event.option.value);
   }
 
   private observeInputChanges(): void {

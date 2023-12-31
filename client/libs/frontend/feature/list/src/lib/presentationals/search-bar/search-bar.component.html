@@ -5,7 +5,7 @@
   <mat-icon matSuffix svgIcon="search"></mat-icon>
 </mat-form-field>
 
-<mat-autocomplete #searchResults="matAutocomplete">
+<mat-autocomplete #searchResults="matAutocomplete" (optionSelected)="onOptionSelected($event)">
   @for (result of searchResult; track result) {
     <mat-option class="option-container" [value]="result.title">
       <div class="content">
