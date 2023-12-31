@@ -1,5 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { provideMock } from '@bookish-list/shared/testing';
+import { DialogService } from '@bookish-list/shared/ui/dialog';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { ListActions } from '../../state/list.actions';
 import { ListSelectors } from '../../state/list.selectors';
@@ -12,7 +14,7 @@ describe('ListComponent', () => {
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      providers: [provideMockStore()],
+      providers: [provideMockStore(), provideMock(DialogService)],
     }).overrideComponent(ListComponent, {
       set: {
         imports: [],
