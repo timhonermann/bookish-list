@@ -1,3 +1,12 @@
 import { MatDialogConfig } from '@angular/material/dialog';
 
-export interface DialogConfig<T = unknown> extends MatDialogConfig<T> {}
+export type DialogWidth =
+  | 'extraSmall'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'extraLarge';
+
+export interface DialogConfig<T = unknown> extends MatDialogConfig<T> {
+  dialogWidth?: DialogWidth;
+}

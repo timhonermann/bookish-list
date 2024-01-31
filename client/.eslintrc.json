@@ -217,6 +217,7 @@
             "accessibility": "no-public"
           }
         ],
+        "@typescript-eslint/consistent-type-definitions": "off",
         "newline-before-return": "error",
         "max-len": "off",
         "no-useless-constructor": "off",
