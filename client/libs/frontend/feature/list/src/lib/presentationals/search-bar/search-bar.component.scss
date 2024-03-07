@@ -1,5 +1,11 @@
 .form-field {
   width: 100%;
+
+  .suffix-container {
+    display: flex;
+    gap: 10px;
+    padding-right: 10px;
+  }
 }
 
 .option-container {

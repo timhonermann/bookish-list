@@ -25,6 +25,7 @@ describe('ListComponent', () => {
     store = TestBed.inject(MockStore);
 
     store.overrideSelector(ListSelectors.searchResults, []);
+    store.overrideSelector(ListSelectors.isLoading, false);
 
     fixture = TestBed.createComponent(ListComponent);
     component = fixture.componentInstance;

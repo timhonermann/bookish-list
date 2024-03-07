@@ -23,6 +23,20 @@ describe('List Reducer', () => {
 
       // assert
       expect(result.searchResult).toEqual(searchResult);
+      expect(result.isLoading).toEqual(false);
+    });
+  });
+
+  describe('lookupItems', () => {
+    it('should set isLoading', () => {
+      // arrange
+      const action = ListActions.lookupItems({ searchValue: '' });
+
+      // act
+      const result = listReducer(initialListState, action);
+
+      // assert
+      expect(result.isLoading).toEqual(true);
     });
   });
 });

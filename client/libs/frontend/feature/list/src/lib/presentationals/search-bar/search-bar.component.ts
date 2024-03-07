@@ -4,7 +4,7 @@ import {
   DestroyRef,
   EventEmitter,
   inject,
-  Input,
+  input,
   OnInit,
   Output,
 } from '@angular/core';
@@ -16,6 +16,7 @@ import {
 } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { LookupItem } from '../../models/list.models';
 
@@ -31,6 +32,7 @@ const INPUT_DEBOUNCE_MS = 400;
     MatAutocompleteModule,
     MatIconModule,
     NgOptimizedImage,
+    MatProgressSpinner,
   ],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.scss',
@@ -38,11 +40,13 @@ const INPUT_DEBOUNCE_MS = 400;
 export class SearchBarComponent implements OnInit {
   private readonly destroyRef = inject(DestroyRef);
 
-  @Input() searchResult: LookupItem[] = [];
-
   @Output() searchValueChanged = new EventEmitter<string | null>();
 
   @Output() optionSelected = new EventEmitter<LookupItem>();
+
+  searchResult = input.required<LookupItem[]>();
+
+  isLoading = input.required<boolean>();
 
   readonly searchControl = new FormControl<string>('');
 

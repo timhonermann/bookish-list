@@ -2,11 +2,17 @@
   <mat-label>Books</mat-label>
   <input [formControl]="searchControl" [matAutocomplete]="searchResults" matInput
          placeholder="Search for titles or authors" />
-  <mat-icon matSuffix svgIcon="search"></mat-icon>
+  <div matSuffix class="suffix-container">
+    @if (isLoading()) {
+      <mat-spinner matSuffix [diameter]="20" />
+    }
+    <mat-icon matSuffix svgIcon="search" />
+  </div>
+
 </mat-form-field>
 
 <mat-autocomplete #searchResults="matAutocomplete" (optionSelected)="onOptionSelected($event)">
-  @for (result of searchResult; track result) {
+  @for (result of searchResult(); track result) {
     <mat-option class="option-container" [value]="result.title">
       <div class="content">
         <img [ngSrc]="result.thumbnailUrl" alt="Thumbnail" width="64" height="96" />

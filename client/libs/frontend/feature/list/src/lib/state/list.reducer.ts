@@ -8,5 +8,11 @@ export const listReducer = createReducer(
   on(ListActions.lookupItemsSuccess, (state, { searchResult }) => ({
     ...state,
     searchResult,
+    isLoading: false,
+  })),
+
+  on(ListActions.lookupItems, (state) => ({
+    ...state,
+    isLoading: true,
   })),
 );

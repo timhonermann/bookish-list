@@ -1,3 +1,5 @@
-<bookish-list-search-bar class="search-bar" [searchResult]="searchResult()"
+<bookish-list-search-bar class="search-bar"
+                         [searchResult]="searchResult()"
+                         [isLoading]="isLoadingSearchResult()"
                          (searchValueChanged)="onSearchValueChanged($event)"
                          (optionSelected)="onOptionSelected($event)" />

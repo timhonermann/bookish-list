@@ -22,6 +22,8 @@ export class ListComponent {
 
   searchResult = this.store.selectSignal(ListSelectors.searchResults);
 
+  isLoadingSearchResult = this.store.selectSignal(ListSelectors.isLoading);
+
   onSearchValueChanged(searchValue: string | null): void {
     this.store.dispatch(ListActions.lookupItems({ searchValue }));
   }

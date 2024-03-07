@@ -8,4 +8,9 @@ export class ListSelectors {
     featureSelector,
     (state) => state.searchResult,
   );
+
+  static readonly isLoading = createSelector(
+    featureSelector,
+    (state) => state.isLoading,
+  );
 }

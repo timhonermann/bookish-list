@@ -18,6 +18,9 @@ describe('SearchBarComponent', () => {
 
     fixture = TestBed.createComponent(SearchBarComponent);
     component = fixture.componentInstance;
+
+    fixture.componentRef.setInput('isLoading', false);
+    fixture.componentRef.setInput('searchResult', []);
     fixture.detectChanges();
   });
 

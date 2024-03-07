@@ -29,4 +29,23 @@ describe('List Selectors', () => {
       expect(result).toEqual(searchResult);
     });
   });
+
+  describe('isLoading', () => {
+    it('should select isLoading', () => {
+      // arrange
+      const isLoading = true;
+
+      const state = {
+        [listFeatureKey]: {
+          isLoading,
+        } as ListState,
+      };
+
+      // act
+      const result = ListSelectors.isLoading(state);
+
+      // assert
+      expect(result).toEqual(isLoading);
+    });
+  });
 });
